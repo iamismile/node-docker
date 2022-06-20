@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT } = require('./config/config');
 
 const postRouter = require('./routes/postRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
 
 // localhost:3000/api/v1/posts
 app.use('/api/v1/posts', postRouter);
+// localhost:3000/api/v1/users
+app.use('/api/v1/users', userRouter);
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`listening on port ${port}`));
